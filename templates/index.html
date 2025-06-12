@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Mini Blog</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        input, textarea { width: 100%%; margin-bottom: 10px; }
+        .post { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Post Something</h1>
+    <form method="post" action="/add">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="content" placeholder="Content" required></textarea>
+        <button type="submit">Add Post</button>
+    </form>
+    <hr>
+    <h2>All Posts</h2>
+    {% for post in posts %}
+    <div class="post">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
